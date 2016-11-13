@@ -1,5 +1,6 @@
 ######database	
 - player name
+- player position
 - club
 - headshot
 - nationality/place of birth/gps coords
