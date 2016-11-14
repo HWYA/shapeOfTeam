@@ -36,4 +36,4 @@ bower.json
 .powenv
 
 # ignore swap files
-.swp
+*.swp
