@@ -37,3 +37,6 @@ bower.json
 
 # ignore swap files
 *.swp
+
+# ignore .DS_Store
+.DS_Store
