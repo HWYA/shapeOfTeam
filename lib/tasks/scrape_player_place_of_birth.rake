@@ -21,14 +21,12 @@ namespace :app do
 				if s.attributes["itemprop"].value === "birthPlace"
 					birth_place = s.content
 					player.write_attribute(:place_of_birth, birth_place.to_s)
-					player.save!
 				else
 					# other value being 'nationality'
-					# nat = s.content
-					# commented out until we add nationality to schema
-					# player.write_attribute(:nationality,nat.to_s)
-
+					nat = s.content
+					player.write_attribute(:nationality,nat.to_s)
 				end
+				player.save!
 			end
 		end
 
