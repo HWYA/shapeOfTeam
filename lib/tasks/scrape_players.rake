@@ -17,12 +17,21 @@ namespace :app do
 
 		club = Club.create(name: "Manchester United")
 
-		player_nodes.each do |p|
+		position_nodes = doc.css('div.responsive-table')[0].css('tbody>tr>td.posrela>table>tr')
+		position_array = Array.new
+		j=0
+		position_nodes.each_with_index do |q,i|
+			if i % 2 != 0
+				position_array[j] = q.text.to_s
+				j+=1
+			end
+		end
+
+		player_nodes.each_with_index do |p,k|
 			profile_link = p.attribute('href').to_s
 			name = p.text.to_s
 
-
-			pl = Player.create(name: name, profile_link: profile_link)
+			pl = Player.create(name: name, profile_link: profile_link,position:position_array[k])
 			club.players << pl
 			club.save
 		end
