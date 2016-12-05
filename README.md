@@ -1,4 +1,4 @@
-######database	
+######database
 - player name
 - player position
 - club
@@ -13,6 +13,6 @@
 - pretty
 - search by club
 
-######need to do	
+######need to do
 - find good reference site to scrape from
 - find out how d3 works
