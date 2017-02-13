@@ -42,6 +42,8 @@ namespace :app do
 				c.players << pl
 				c.save
 			end
+
+			puts c.name + " roster being updated..."
 		end
 	end
 end
