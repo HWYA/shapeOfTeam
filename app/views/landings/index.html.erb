@@ -1,0 +1,7 @@
+<html>
+<%= form_tag("/clubs", method: "get") do %>
+  <%= label_tag(:name, "club name:") %>
+  <%= text_field_tag(:name,"",id:"the_only_text_field") %>
+  <%= submit_tag("Search", id: "the_only_button") %>
+<% end %>
+</html>

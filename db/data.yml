@@ -1,0 +1,287 @@
+#
+# ---
+# ar_internal_metadata:
+#   columns:
+#   - key
+#   - value
+#   - created_at
+#   - updated_at
+#   records:
+#   - - environment
+#     - development
+#     - '2016-11-30 02:45:53.015412'
+#     - '2016-11-30 02:45:53.015412'
+#
+# ---
+# clubs:
+#   columns:
+#   - id
+#   - name
+#   - league_name
+#   - created_at
+#   - updated_at
+#   - club_link
+#   records:
+#   - - 1
+#     - Manchester United
+#     -
+#     - '2016-11-30 02:46:10.818831'
+#     - '2016-11-30 02:46:10.818831'
+#     -
+#
+# ---
+# players:
+#   columns:
+#   - id
+#   - name
+#   - position
+#   - place_of_birth
+#   - created_at
+#   - updated_at
+#   - profile_link
+#   - club_id
+#   - nationality
+#   records:
+#   - - 1
+#     - David de Gea
+#     - Keeper
+#     -
+#     - '2016-11-30 02:46:10.874261'
+#     - '2016-11-30 02:46:10.909032'
+#     - "/david-de-gea/profil/spieler/59377"
+#     - 1
+#     -
+#   - - 2
+#     - Sergio Romero
+#     - Keeper
+#     -
+#     - '2016-11-30 02:46:10.915331'
+#     - '2016-11-30 02:46:10.918685'
+#     - "/sergio-romero/profil/spieler/30690"
+#     - 1
+#     -
+#   - - 3
+#     - Sam Johnstone
+#     - Keeper
+#     -
+#     - '2016-11-30 02:46:10.923952'
+#     - '2016-11-30 02:46:10.926939'
+#     - "/sam-johnstone/profil/spieler/110864"
+#     - 1
+#     -
+#   - - 4
+#     - Eric Bailly
+#     - Centre-Back
+#     -
+#     - '2016-11-30 02:46:10.931093'
+#     - '2016-11-30 02:46:10.934595'
+#     - "/eric-bailly/profil/spieler/286384"
+#     - 1
+#     -
+#   - - 5
+#     - Daley Blind
+#     - Centre-Back
+#     -
+#     - '2016-11-30 02:46:10.939327'
+#     - '2016-11-30 02:46:10.943014'
+#     - "/daley-blind/profil/spieler/12282"
+#     - 1
+#     -
+#   - - 6
+#     - Chris Smalling
+#     - Centre-Back
+#     -
+#     - '2016-11-30 02:46:10.948023'
+#     - '2016-11-30 02:46:10.951155'
+#     - "/chris-smalling/profil/spieler/103427"
+#     - 1
+#     -
+#   - - 7
+#     - Marcos Rojo
+#     - Centre-Back
+#     -
+#     - '2016-11-30 02:46:10.955298'
+#     - '2016-11-30 02:46:10.958433'
+#     - "/marcos-rojo/profil/spieler/93176"
+#     - 1
+#     -
+#   - - 8
+#     - Phil Jones
+#     - Centre-Back
+#     -
+#     - '2016-11-30 02:46:10.963104'
+#     - '2016-11-30 02:46:10.966557'
+#     - "/phil-jones/profil/spieler/117996"
+#     - 1
+#     -
+#   - - 9
+#     - Luke Shaw
+#     - Left-Back
+#     -
+#     - '2016-11-30 02:46:10.971781'
+#     - '2016-11-30 02:46:10.975709'
+#     - "/luke-shaw/profil/spieler/183288"
+#     - 1
+#     -
+#   - - 10
+#     - Matteo Darmian
+#     - Right-Back
+#     -
+#     - '2016-11-30 02:46:10.979961'
+#     - '2016-11-30 02:46:10.983574'
+#     - "/matteo-darmian/profil/spieler/54906"
+#     - 1
+#     -
+#   - - 11
+#     - Antonio Valencia
+#     - Right-Back
+#     -
+#     - '2016-11-30 02:46:10.988771'
+#     - '2016-11-30 02:46:10.991956'
+#     - "/antonio-valencia/profil/spieler/33544"
+#     - 1
+#     -
+#   - - 12
+#     - Morgan Schneiderlin
+#     - Defensive Midfield
+#     -
+#     - '2016-11-30 02:46:10.996669'
+#     - '2016-11-30 02:46:10.999953'
+#     - "/morgan-schneiderlin/profil/spieler/56818"
+#     - 1
+#     -
+#   - - 13
+#     - Michael Carrick
+#     - Defensive Midfield
+#     -
+#     - '2016-11-30 02:46:11.004356'
+#     - '2016-11-30 02:46:11.007959'
+#     - "/michael-carrick/profil/spieler/3878"
+#     - 1
+#     -
+#   - - 14
+#     - Timothy Fosu-Mensah
+#     - Defensive Midfield
+#     -
+#     - '2016-11-30 02:46:11.012863'
+#     - '2016-11-30 02:46:11.016603'
+#     - "/timothy-fosu-mensah/profil/spieler/315131"
+#     - 1
+#     -
+#   - - 15
+#     - Paul Pogba
+#     - Central Midfield
+#     -
+#     - '2016-11-30 02:46:11.021045'
+#     - '2016-11-30 02:46:11.024244'
+#     - "/paul-pogba/profil/spieler/122153"
+#     - 1
+#     -
+#   - - 16
+#     - Ander Herrera
+#     - Central Midfield
+#     -
+#     - '2016-11-30 02:46:11.02888'
+#     - '2016-11-30 02:46:11.032588'
+#     - "/ander-herrera/profil/spieler/99343"
+#     - 1
+#     -
+#   - - 17
+#     - Marouane Fellaini
+#     - Central Midfield
+#     -
+#     - '2016-11-30 02:46:11.037097'
+#     - '2016-11-30 02:46:11.040834'
+#     - "/marouane-fellaini/profil/spieler/39679"
+#     - 1
+#     -
+#   - - 18
+#     - Bastian Schweinsteiger
+#     - Central Midfield
+#     -
+#     - '2016-11-30 02:46:11.044931'
+#     - '2016-11-30 02:46:11.048011'
+#     - "/bastian-schweinsteiger/profil/spieler/2514"
+#     - 1
+#     -
+#   - - 19
+#     - Henrikh Mkhitaryan
+#     - Attacking Midfield
+#     -
+#     - '2016-11-30 02:46:11.052304'
+#     - '2016-11-30 02:46:11.055504'
+#     - "/henrikh-mkhitaryan/profil/spieler/55735"
+#     - 1
+#     -
+#   - - 20
+#     - Juan Mata
+#     - Attacking Midfield
+#     -
+#     - '2016-11-30 02:46:11.05986'
+#     - '2016-11-30 02:46:11.063071'
+#     - "/juan-mata/profil/spieler/44068"
+#     - 1
+#     -
+#   - - 21
+#     - Ashley Young
+#     - Left Wing
+#     -
+#     - '2016-11-30 02:46:11.067238'
+#     - '2016-11-30 02:46:11.070332'
+#     - "/ashley-young/profil/spieler/14086"
+#     - 1
+#     -
+#   - - 22
+#     - Jesse Lingard
+#     - Left Wing
+#     -
+#     - '2016-11-30 02:46:11.075355'
+#     - '2016-11-30 02:46:11.078889'
+#     - "/jesse-lingard/profil/spieler/141660"
+#     - 1
+#     -
+#   - - 23
+#     - Memphis Depay
+#     - Left Wing
+#     -
+#     - '2016-11-30 02:46:11.082706'
+#     - '2016-11-30 02:46:11.086333'
+#     - "/memphis-depay/profil/spieler/167850"
+#     - 1
+#     -
+#   - - 24
+#     - Wayne Rooney
+#     - Secondary Striker
+#     -
+#     - '2016-11-30 02:46:11.091167'
+#     - '2016-11-30 02:46:11.09482'
+#     - "/wayne-rooney/profil/spieler/3332"
+#     - 1
+#     -
+#   - - 25
+#     - Anthony Martial
+#     - Centre-Forward
+#     -
+#     - '2016-11-30 02:46:11.099658'
+#     - '2016-11-30 02:46:11.103189'
+#     - "/anthony-martial/profil/spieler/182877"
+#     - 1
+#     -
+#   - - 26
+#     - Zlatan Ibrahimovic
+#     - Centre-Forward
+#     -
+#     - '2016-11-30 02:46:11.108517'
+#     - '2016-11-30 02:46:11.112264'
+#     - "/zlatan-ibrahimovic/profil/spieler/3455"
+#     - 1
+#     -
+#   - - 27
+#     - Marcus Rashford
+#     - Centre-Forward
+#     -
+#     - '2016-11-30 02:46:11.117503'
+#     - '2016-11-30 02:46:11.12123'
+#     - "/marcus-rashford/profil/spieler/258923"
+#     - 1
+#     -
