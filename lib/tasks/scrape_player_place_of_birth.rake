@@ -1,8 +1,7 @@
-require 'nokogiri'
-require 'open-uri'
-
 namespace :app do
 	task :scrape_player_place_of_birth => :environment do
+		require 'nokogiri'
+		require 'open-uri'
 
 		url_base = 'http://www.transfermarkt.com'
 
