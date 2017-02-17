@@ -54,12 +54,16 @@ GEM
       execjs
     coffee-script-source (1.11.1)
     concurrent-ruby (1.0.2)
+    d3-rails (4.3.0)
+      railties (>= 3.1)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -85,6 +89,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    multi_xml (0.5.5)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -175,6 +180,8 @@ DEPENDENCIES
   active_model_serializers
   byebug
   coffee-rails (~> 4.2)
+  d3-rails
+  httparty
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
