@@ -1,15 +1,19 @@
+require 'nokogiri'
+require 'open-uri'
+
 namespace :app do
 	task :scrape_player_place_of_birth => :environment do
 
-		require 'nokogiri'
-		require 'open-uri'
-
 		url_base = 'http://www.transfermarkt.com'
 
-		# statically coded to iterate over Man Utd (or whatever team happens to be first on the premier league front page) right now
-		club_players = Player.where(club_id:1)
+		club_players = Player.all
 
-		club_players.each do |player|
+		# lengthiest scrape, checking time it takes
+		start = Time.now
+
+		puts "Number of players to update: " + club_players.count.to_s
+
+		club_players.each_with_index do |player, i|
 
 			url = url_base + player.profile_link
 			doc = Nokogiri::HTML(open(url))
@@ -28,7 +32,12 @@ namespace :app do
 				end
 				player.save!
 			end
+
+			puts "Number of players birthplaces updated: #{i + 1}" 
 		end
 
+		finish = Time.now
+
+		puts "It took #{finish - start} seconds to get all player POB"
 	end
 end

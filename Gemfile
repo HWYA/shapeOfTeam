@@ -32,8 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'yaml_db'
-
+# keeps json output clean and optimistically declarative
 gem 'active_model_serializers'
 
 gem "d3-rails"
@@ -52,7 +51,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # helps rails console readability
   gem 'pry-rails'
+  # used to dump database into yaml format
+  gem 'yaml_db'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
