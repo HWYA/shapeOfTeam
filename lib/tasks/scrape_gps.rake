@@ -13,18 +13,22 @@ namespace :app do
             nat = player.nationality
 
             if (pob.include? " ")
-                pob = player.place_of_birth.gsub!(" ","+")
+                pob = player.place_of_birth.gsub(" ","+")
             end
 
             if (player.nationality.include? " ")
-                nat = player.nationality.gsub!(" ","+")
+                nat = player.nationality.gsub(" ","+")
             end
 
-            query = url_base + "address=" + player.place_of_birth + ",+" + player.nationality + "&" + "AIzaSyCtNLoBlmw1b1zUJa10PSXqHu-QII9NpYU"
+            query = url_base + "address=" + pob + ",+" + nat + "&" + "AIzaSyCtNLoBlmw1b1zUJa10PSXqHu-QII9NpYU"
 
             response = HTTParty.get(URI.encode(query))
 
             location = JSON.parse(response.body)['results'][0]['geometry']['location'] #testing
+
+            if (location == nil)
+                next
+            end
 
             player.write_attribute(:bp_latitude,location['lat'])
             player.write_attribute(:bp_longitude,location['lng'])

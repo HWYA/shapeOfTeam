@@ -32,7 +32,7 @@ namespace :app do
 				player.save!
 			end
 
-			puts "Number of players birthplaces updated: #{i + 1}" 
+			print "\rNumber of players birthplaces updated: #{i + 1}" 
 		end
 
 		finish = Time.now
