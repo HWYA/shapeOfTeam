@@ -18,16 +18,17 @@ namespace :app do
 			doc = Nokogiri::HTML(open(url))
 
 			# wanted some level of check, though hardcoding info_spans[0] and info_spans[1] would work as well
-			info_spans = doc.css('span.dataValue>span')
+			parent_span = doc.at_css('.hide-for-small>span.dataValue')
 
-			info_spans.each do |s|
-				if s.attributes["itemprop"].value === "birthPlace"
-					birth_place = s.content
-					player.write_attribute(:place_of_birth, birth_place.to_s)
-				else
-					# other value being 'nationality'
-					nat = s.content
-					player.write_attribute(:nationality,nat.to_s)
+			parent_span.children.each do |c|
+				if c.name == "img"
+					place_of_birth = c.attributes["title"].value
+					player.write_attribute(:place_of_birth, place_of_birth)
+				end
+
+				if c.name == "span"
+					nationality = c.children[0].content
+					player.write_attribute(:nationality, nationality)
 				end
 				player.save!
 			end
