@@ -8,9 +8,14 @@ namespace :app do
 
         club_players = Player.all
 
-        club_players.each do |player|
+        club_players.each_with_index do |player, i|
             pob = player.place_of_birth
             nat = player.nationality
+
+            # make sure that we skip over players that TransferMarkt might not have info on / we didn't grab properly for whatever reason
+            if pob.nil? || nat.nil?
+                next
+            end
 
             if (pob.include? " ")
                 pob = player.place_of_birth.gsub(" ","+")
@@ -24,15 +29,15 @@ namespace :app do
 
             response = HTTParty.get(URI.encode(query))
 
-            location = JSON.parse(response.body)['results'][0]['geometry']['location'] #testing
+            if response['status'] == 'OK'
+                location = JSON.parse(response.body)['results'][0]['geometry']['location'] #testing
 
-            if (location == nil)
+                player.write_attribute(:bp_latitude,location['lat'])
+                player.write_attribute(:bp_longitude,location['lng'])
+                player.save!
+            else
                 next
             end
-
-            player.write_attribute(:bp_latitude,location['lat'])
-            player.write_attribute(:bp_longitude,location['lng'])
-            player.save!
         end
     end
 end
