@@ -39,6 +39,9 @@ gem "d3-rails"
 
 gem "httparty"
 
+gem "em-resolv-replace"
+gem "eventmachine"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
