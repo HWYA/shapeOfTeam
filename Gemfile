@@ -39,6 +39,10 @@ gem "d3-rails"
 
 gem "httparty"
 
+# helps with keeping rake tasks from failing if there are socket/timeout errors with data source
+gem "em-resolv-replace"
+gem "eventmachine"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

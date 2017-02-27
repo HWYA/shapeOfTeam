@@ -2,6 +2,8 @@ namespace :app do
 	task :scrape_player_place_of_birth => :environment do
 		require 'nokogiri'
 		require 'open-uri'
+		require 'resolv'
+		require 'resolv-replace'
 
 		url_base = 'http://www.transfermarkt.com'
 
@@ -17,18 +19,23 @@ namespace :app do
 			url = url_base + player.profile_link
 			doc = Nokogiri::HTML(open(url))
 
-			# wanted some level of check, though hardcoding info_spans[0] and info_spans[1] would work as well
 			parent_span = doc.at_css('.hide-for-small>span.dataValue')
 
 			parent_span.children.each do |c|
 				if c.name == "img"
-					place_of_birth = c.attributes["title"].value
-					player.write_attribute(:place_of_birth, place_of_birth)
+					nationality = c.attributes["title"].value
+					player.write_attribute(:nationality, nationality)
 				end
 
 				if c.name == "span"
-					nationality = c.children[0].content
-					player.write_attribute(:nationality, nationality)
+					# deals with ellipses TransferMarkt uses when name of city is too long
+					if c.children.children.count == 0
+						place_of_birth = c.children[0].content
+						player.write_attribute(:place_of_birth, place_of_birth)
+					else
+						place_of_birth = c.children[0].attributes["title"].value
+						player.write_attribute(:place_of_birth, place_of_birth)
+					end
 				end
 				player.save!
 			end
@@ -38,6 +45,6 @@ namespace :app do
 
 		finish = Time.now
 
-		puts "It took #{finish - start} seconds to get all player POB"
+		puts "\nIt took #{finish - start} seconds to get all player POB"
 	end
 end
