@@ -39,6 +39,7 @@ gem "d3-rails"
 
 gem "httparty"
 
+# helps with keeping rake tasks from failing if there are socket/timeout errors with data source
 gem "em-resolv-replace"
 gem "eventmachine"
 
