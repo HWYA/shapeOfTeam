@@ -45,6 +45,6 @@ namespace :app do
 
 		finish = Time.now
 
-		puts "It took #{finish - start} seconds to get all player POB"
+		puts "\nIt took #{finish - start} seconds to get all player POB"
 	end
 end

@@ -1,5 +1,5 @@
 namespace :app do
-    task :scrape_gps => :environment do
+    task :get_gps_coords => :environment do
 
         require 'httparty'
         require 'json'
@@ -7,6 +7,8 @@ namespace :app do
         url_base = "https://maps.googleapis.com/maps/api/geocode/json?"
 
         club_players = Player.all
+
+        start = Time.now 
 
         club_players.each_with_index do |player, i|
             pob = player.place_of_birth
@@ -21,13 +23,14 @@ namespace :app do
                 pob = player.place_of_birth.gsub(" ","+")
             end
 
-            if (player.nationality.include? " ")
+            if (nat.include? " ")
                 nat = player.nationality.gsub(" ","+")
             end
 
             query = url_base + "address=" + pob + ",+" + nat + "&" + "AIzaSyCtNLoBlmw1b1zUJa10PSXqHu-QII9NpYU"
 
-            response = HTTParty.get(URI.encode(query))
+            # takes unicode and turns it into ascii, strip unneeded accents to ensure Google response
+            response = HTTParty.get(URI.encode(I18n.transliterate(query)))
 
             if response['status'] == 'OK'
                 location = JSON.parse(response.body)['results'][0]['geometry']['location'] #testing
@@ -35,9 +38,15 @@ namespace :app do
                 player.write_attribute(:bp_latitude,location['lat'])
                 player.write_attribute(:bp_longitude,location['lng'])
                 player.save!
+                print "Player POB long/lat updated: #{i + 1} / #{club_players.count}\r"
             else
+                # if we don't have a response from Google Maps for whatever reason, go ahead and go to next player - we can deal with it on our end later on
                 next
             end
         end
+
+        finish = Time.now
+
+        puts "\nIt took #{finish - start} seconds to get all player POB coordinates"
     end
 end
