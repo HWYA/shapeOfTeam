@@ -16,8 +16,14 @@ var map = new Datamap({
     defaultFill: '#f0af0a',
     playerFill: 'black'
   },
+  bubblesConfig: {
+    borderWidth:0,
+    popupTemplate: function(geography,data){
+      return '<div class="hoverinfo"><strong>'+data.name+'</strong><br>'+data.place_of_birth+'</div>';
+    }
 
-  data: {}
+  }
+
   })
 
 </script>

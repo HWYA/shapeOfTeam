@@ -13,7 +13,7 @@ $(document).ready(function() {
       dataType: "json",
       success: function(data) {
         for (i=0;i<data.length;i++){
-          data[i].radius=5;
+          data[i].radius=2;
           data[i].fillKey='playerFill';
           data[i].latitude=data[i].bp_latitude;
           data[i].longitude=data[i].bp_longitude;
