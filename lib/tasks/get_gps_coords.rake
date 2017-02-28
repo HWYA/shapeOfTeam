@@ -12,6 +12,7 @@ namespace :app do
 
         club_players.each_with_index do |player, i|
             pob = player.place_of_birth
+            player.strip_nationality    # replaces specified nationalities with ""
             nat = player.nationality
 
             # make sure that we skip over players that TransferMarkt might not have info on / we didn't grab properly for whatever reason
