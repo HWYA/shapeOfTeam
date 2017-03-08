@@ -34,10 +34,19 @@ namespace :app do
             response = HTTParty.get(URI.encode(I18n.transliterate(query)))
 
             if response['status'] == 'OK'
-                location = JSON.parse(response.body)['results'][0]['geometry']['location'] #testing
+
+                maps_response = JSON.parse(response.body)
+                
+                location = maps_response['results'][0]['geometry']['location'] #testing
 
                 player.write_attribute(:bp_latitude,location['lat'])
                 player.write_attribute(:bp_longitude,location['lng'])
+
+                if nat == ""    # overwrites empty string nationalities with proper nation
+                    nation = maps_response['results'][0]['address_components'][2]['long_name']  # holds nation for eastern bloc players hit with Player.strip_nationality
+                    player.write_attribute(:nationality, nation)
+                end
+                
                 player.save!
                 print "Player POB long/lat updated: #{i + 1} / #{club_players.count}\r"
             else
