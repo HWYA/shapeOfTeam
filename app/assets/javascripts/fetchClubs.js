@@ -5,11 +5,12 @@ $(document).ready(function() {
 
     // encodeURIComponent converts text field params for GET
     var club_name = encodeURIComponent($("#the_only_text_field").val());
+    var hostname = window.location.host
 
     $.ajax({
 
       method: "GET",
-      url: "http://localhost:3000/clubs?name="+club_name,
+      url: "http://"+hostname+"/clubs?name="+club_name,
       dataType: "json",
       success: function(data) {
         for (i=0;i<data.length;i++){
