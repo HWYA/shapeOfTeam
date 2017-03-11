@@ -19,8 +19,9 @@ namespace :app do
 
 			parent_span = doc.at_css('span[itemprop=nationality]')
 			nationality = parent_span.content
-			player.write_attribute(:nationality, nationality )
-
+			player.write_attribute(:nationality, nationality)
+			# sets pob to empty string
+			player.only_have_nationality
 			player.save!
 
 			print "\rNumber of players birthplaces updated: #{i + 1}" 
