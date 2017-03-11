@@ -3,9 +3,14 @@ namespace :app do
 
         require 'httparty'
         require 'json'
+        require 'resolv'
+        require 'resolv-replace'
 
         url_base = "https://maps.googleapis.com/maps/api/geocode/json?"
 
+        # club_players = []
+        # p =Player.find 373
+        # club_players << p
         club_players = Player.all
 
         start = Time.now 
@@ -14,11 +19,6 @@ namespace :app do
             pob = player.place_of_birth
             player.strip_nationality    # replaces specified nationalities with ""
             nat = player.nationality
-
-            # make sure that we skip over players that TransferMarkt might not have info on / we didn't grab properly for whatever reason
-            if pob.nil? || nat.nil?
-                next
-            end
 
             if (pob.include? " ")
                 pob = player.place_of_birth.gsub(" ","+")
@@ -29,7 +29,6 @@ namespace :app do
             end
 
             query = url_base + "address=" + pob + ",+" + nat + "&" + "AIzaSyCtNLoBlmw1b1zUJa10PSXqHu-QII9NpYU"
-
             # takes unicode and turns it into ascii, strip unneeded accents to ensure Google response
             response = HTTParty.get(URI.encode(I18n.transliterate(query)))
 
@@ -37,13 +36,14 @@ namespace :app do
 
                 maps_response = JSON.parse(response.body)
                 
-                location = maps_response['results'][0]['geometry']['location'] #testing
+                location = maps_response['results'][0]['geometry']['location']
 
                 player.write_attribute(:bp_latitude,location['lat'])
                 player.write_attribute(:bp_longitude,location['lng'])
 
                 if nat == ""    # overwrites empty string nationalities with proper nation
-                    nation = maps_response['results'][0]['address_components'][2]['long_name']  # holds nation for eastern bloc players hit with Player.strip_nationality
+                    last_index = maps_response['results'][0]['address_components'].length - 1
+                    nation = maps_response['results'][0]['address_components'][last_index]['long_name']  # holds nation for eastern bloc players hit with Player.strip_nationality
                     player.write_attribute(:nationality, nation)
                 end
                 
