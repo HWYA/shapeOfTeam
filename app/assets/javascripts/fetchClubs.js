@@ -10,7 +10,7 @@ $(document).ready(function() {
     $.ajax({
 
       method: "GET",
-      url: "http://"+hostname+"/clubs?name="+club_name,
+      url: "https://"+hostname+"/clubs?name="+club_name,
       dataType: "json",
       success: function(data) {
         for (i=0;i<data.length;i++){
