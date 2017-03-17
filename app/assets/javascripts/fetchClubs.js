@@ -6,7 +6,7 @@ $(document).ready(function() {
     // encodeURIComponent converts text field params for GET
     var club_name = encodeURIComponent($("#the_only_text_field").val());
     // var hostname = window.location.host
-    if (window.location.host === "localhost:3000") {
+    if (window.location.protocol === "http:") {
       var myDomain = "http://"+window.location.host;
     } else {
       myDomain = "https://"+window.location.host;
