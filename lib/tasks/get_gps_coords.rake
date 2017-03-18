@@ -16,7 +16,9 @@ namespace :app do
         start = Time.now 
 
         club_players.each_with_index do |player, i|
+            player.removes_pob_region
             pob = player.place_of_birth
+
             player.strip_nationality    # replaces specified nationalities with ""
             nat = player.nationality
 
