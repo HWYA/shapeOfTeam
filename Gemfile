@@ -37,11 +37,15 @@ gem 'active_model_serializers'
 
 gem "d3-rails"
 
+# http request gem
 gem "httparty"
 
 # helps with keeping rake tasks from failing if there are socket/timeout errors with data source
 gem "em-resolv-replace"
 gem "eventmachine"
+
+# helps rails console readability
+  gem 'pry-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -55,8 +59,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  # helps rails console readability
-  gem 'pry-rails'
+  
   # used to dump database into yaml format
   gem 'yaml_db'
 end
