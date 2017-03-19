@@ -1,10 +1,10 @@
 $(document).ready(function() {
-  $("#the_only_button").on('click', function(event) {
+  $("#get_club_name").on('change', function(event) {
 
     event.preventDefault();
 
     // encodeURIComponent converts text field params for GET
-    var club_name = encodeURIComponent($("#the_only_text_field").val());
+    var club_name = encodeURIComponent($("#get_club_name").val());
     // var hostname = window.location.host
     if (window.location.protocol === "http:") {
       var myDomain = "http://"+window.location.host;

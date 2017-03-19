@@ -2,15 +2,18 @@
   <head>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script> -->
+    <%= stylesheet_link_tag 'application' %>
 
-    <div id="container" style="position: relative; width: 80%; height: 600px;"></div>
+    <div id="container"></div>
 
     <script>
       var map = new Datamap({
         scope: 'world',
         element: document.getElementById('container'),
         projection: 'mercator',
-        height: 600,
+        height: null,
+        width: null,
+        responsive: true,
         fills: {
           defaultFill: '#C4C4C4',
           playerFill: '#38003c'
@@ -26,12 +29,14 @@
           highlightFillColor: '#e90052'
         }
       })
+
+      $(window).on('resize', function() {
+        map.resize();
+      });
+
     </script>
   </head>
 
-  <%= form_tag("/clubs", method: "get") do %>
-    <%= label_tag(:name, "club name:") %>
-    <%= text_field_tag(:name,"",id:"the_only_text_field") %>
-    <%= submit_tag("Search", id: "the_only_button") %>
-  <% end %>
+  <%= select("get", "club_name", Club.all.collect {|p| [ p.name ] }, {include_blank: 'SELECT CLUB:'}) %>
+
 </html>
