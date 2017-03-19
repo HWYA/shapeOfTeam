@@ -12,14 +12,18 @@
         projection: 'mercator',
         height: 600,
         fills: {
-          defaultFill: '#f0af0a',
-          playerFill: 'black'
+          defaultFill: '#C4C4C4',
+          playerFill: '#38003c'
+        },
+        geographyConfig:{
+          highlightFillColor: '#e90052'
         },
         bubblesConfig: {
           borderWidth: 0,
           popupTemplate: function(geography,data){
             return '<div class="hoverinfo"><strong>' + data.name + '</strong><br>' + data.place_of_birth + '</div>';
-          }
+          },
+          highlightFillColor: '#e90052'
         }
       })
     </script>
