@@ -4,7 +4,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script> -->
     <%= stylesheet_link_tag 'application' %>
 
-    <div id="container"></div>
+    <div id="container">  <%= select("get", "club_name", Club.all.collect {|p| [ p.name ] }, {include_blank: 'Select club:'}) %>
+</div>
 
     <script>
       var map = new Datamap({
@@ -19,12 +20,16 @@
           playerFill: '#38003c'
         },
         geographyConfig:{
-          highlightFillColor: '#e90052'
+          hideAntarctica: null,
+          highlightFillColor: '#e90052',
+          popupTemplate: function(geography,data){
+            return '<div class="country_info" id="country_info">' + geography.properties.name + '</strong></div>';
+          }
         },
         bubblesConfig: {
           borderWidth: 0,
           popupTemplate: function(geography,data){
-            return '<div class="hoverinfo"><strong>' + data.name + '</strong><br>' + data.place_of_birth + '</div>';
+            return '<div class="player_info" id="player_info"><strong>' + data.name + '</strong><br><i>' + data.place_of_birth + '</i></div>';
           },
           highlightFillColor: '#e90052'
         }
@@ -36,7 +41,5 @@
 
     </script>
   </head>
-
-  <%= select("get", "club_name", Club.all.collect {|p| [ p.name ] }, {include_blank: 'SELECT CLUB:'}) %>
 
 </html>

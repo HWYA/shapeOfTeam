@@ -1,4 +1,30 @@
-#container {
-    
+#get_club_name{
+    position: absolute;
+    border-color: #000000;
+    top: 95%;
+    left: 45%;
+    z-index: 100001;
 }
 
+#player_info {
+    border-radius: 5px;
+
+    /*background-color: #38003c;*/
+    background-color: #e90052;
+
+    font-size: x-small;
+    color: #ffffff;
+
+    padding: 5px 5px;
+}
+
+#country_info {
+    border-radius: 5px;
+
+    background-color: #000000;
+;
+    font-size: x-small;
+    color: #ffffff;
+    
+    padding: 5px 5px;
+}
