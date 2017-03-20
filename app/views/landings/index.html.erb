@@ -29,6 +29,12 @@
         bubblesConfig: {
           borderWidth: 0,
           popupTemplate: function(geography,data){
+
+            // catches players with place_of_birth stripped
+            if (data.place_of_birth === "") {
+              data.place_of_birth = "No information";
+            };
+            
             return '<div class="player_info" id="player_info"><strong>' + data.name + '</strong><br><i>' + data.place_of_birth + '</i></div>';
           },
           highlightFillColor: '#e90052'
