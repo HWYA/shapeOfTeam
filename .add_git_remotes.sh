@@ -7,7 +7,7 @@ u="upstream"
 o="origin"
 
 h_remote="git remote add heroku https://git.heroku.com/shapeofteam.git"
-u_remote="git remote add upstream https://git@github.com:HWYA/shapeOfTeam.git"
+u_remote="git remote add upstream git@github.com:HWYA/shapeOfTeam.git"
 
 if  [ ${#output_array[@]} == 3 ]; then
 	for remote in "${output_array[@]}"
