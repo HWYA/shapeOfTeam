@@ -1,11 +1,10 @@
 <html>
   <head>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script> -->
     <%= stylesheet_link_tag 'application' %>
 
-    <div id="container">  <%= select("get", "club_name", Club.all.collect {|p| [ p.name ] }, {include_blank: 'Select club:'}) %>
-</div>
+    <div id="container">
+      <%= select("get", "club_name", Club.all.collect {|p| [ p.name ] }, {include_blank: 'Select club:'}) %>
+    </div>
 
     <script>
       var map = new Datamap({
