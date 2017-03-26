@@ -1,0 +1,29 @@
+#container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+#get_club_name {
+    border-color: #000000;
+    left: 45%;
+    position: absolute;
+    top: 95%;
+    z-index: 100001;
+}
+
+#player_info {
+    background-color: #e90052;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: x-small;
+    padding: 5px 5px;
+}
+
+#country_info {
+    background-color: #000000;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: x-small;
+    padding: 5px 5px;
+}

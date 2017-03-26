@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require d3
+//= require d3.min.js
+//= require topojson.min.js
+//= require datamaps.world.hires.min.js
 //= require fetchClubs
 //= require_tree .
