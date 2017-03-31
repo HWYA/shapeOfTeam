@@ -4,17 +4,20 @@ $(window).ready(function() {
     event.preventDefault();
 
     // encodeURIComponent converts text field params for GET
-    var club_name = encodeURIComponent($("#get_club_name").val());
+    var clubName = encodeURIComponent($("#get_club_name").val());
+
     // to prevent mixed content issues
-    if (window.location.protocol === "http:") {
-      var myDomain = "http://" + window.location.host;
-    } else {
-      myDomain = "https://" + window.location.host;
-    }
+    var properDomain = function() {
+      if (window.location.protocol === "http:") {
+        return "http://" + window.location.host;
+      } else {
+        return "https://" + window.location.host;
+      }
+    }();
 
     $.ajax({
       method: "GET",
-      url: myDomain + "/clubs?name=" + club_name,
+      url: properDomain + "/clubs?name=" + clubName,
       dataType: "json",
       success: function(data) {
         for (i=0; i < data.length; i++) {
