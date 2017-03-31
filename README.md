@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/HWYA/shapeOfTeam.svg?branch=development)](https://travis-ci.org/HWYA/shapeOfTeam)
+
 ###### general
 shapeOfTeam is a geography and soccer data driven site. Check it out [here](https://shapeofteam.herokuapp.com).
 
