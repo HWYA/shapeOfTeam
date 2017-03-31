@@ -18,6 +18,14 @@ class Player < ApplicationRecord
 		end
 	end
 
+	def return_plus_string(locale)
+		if locale.include? ' '
+			locale.gsub(' ', '+')
+		else
+			locale
+		end
+	end
+
 	def strip_nationality
 		deprecated_nations = ["Jugoslawien (SFR)","CSSR","UDSSR","Yugoslavia (Republic)"]
 		# we can update nationality from another source

@@ -8,29 +8,18 @@ namespace :app do
 
         url_base = "https://maps.googleapis.com/maps/api/geocode/json?"
 
-        # club_players = []
-        # p =Player.find 373
-        # club_players << p
         club_players = Player.all
 
         start = Time.now 
 
         club_players.each_with_index do |player, i|
             player.removes_pob_region
-            pob = player.place_of_birth
-
             player.strip_nationality    # replaces specified nationalities with ""
-            nat = player.nationality
-
-            if (pob.include? " ")
-                pob = player.place_of_birth.gsub(" ","+")
-            end
-
-            if (nat.include? " ")
-                nat = player.nationality.gsub(" ","+")
-            end
+            pob = player.return_plus_string(player.place_of_birth)
+            nat = player.return_plus_string(player.nationality)
 
             query = url_base + "address=" + pob + ",+" + nat + "&" + "AIzaSyCtNLoBlmw1b1zUJa10PSXqHu-QII9NpYU"
+
             # takes unicode and turns it into ascii, strip unneeded accents to ensure Google response
             response = HTTParty.get(URI.encode(I18n.transliterate(query)))
 
