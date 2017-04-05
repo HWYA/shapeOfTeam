@@ -11,6 +11,6 @@ If you're forking a copy, you can add the necessary remotes for prod and upstrea
 ###### testing
 We run our [RSpec](https://github.com/rspec/rspec) suite with the help of [FactoryGirl](https://github.com/thoughtbot/factory_girl), [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers), and [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner). Our test watcher is [Guard RSpec](https://github.com/guard/guard-rspec).
 
-You can check out the whole suite by running `bundle exec rspec` and passing additional parameters within the `spec` folder like such: `bundle exec rspec spec models/club_spec.rb`
+You can check out the whole suite by running `bundle exec rspec` from the root of the project and passing additional parameters within the `spec` folder like such: `bundle exec rspec spec models/club_spec.rb`
 
-Try running the watcher with `bundle exec guard`
+Try running the watcher with `bundle exec guard` from the root of the project as well while developing new tests.
