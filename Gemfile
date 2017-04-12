@@ -47,7 +47,12 @@ gem "eventmachine"
 # helps rails console readability
 gem 'pry-rails'
 
+# image uploading to s3
+gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
 
+# loads .env variables into ENV in development
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
