@@ -35,6 +35,9 @@ bower.json
 #Ignore pow enironment settings
 .powenv
 
+# ignore dotenv
+.env
+
 # ignore swap files
 *.swp
 

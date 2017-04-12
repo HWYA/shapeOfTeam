@@ -3,6 +3,10 @@ class Player < ApplicationRecord
 
 	scope :missing_pob, -> { where(place_of_birth: nil) }
 
+    has_attached_file :avatar
+    validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
+
 	def only_have_nationality
 		self.place_of_birth.nil? && self.bp_latitude.nil? && bp_longitude.nil?
 		self.place_of_birth = ""
