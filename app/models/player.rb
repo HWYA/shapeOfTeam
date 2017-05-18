@@ -38,4 +38,13 @@ class Player < ApplicationRecord
 			self.save
 		end
 	end
+
+    # avatar methods
+    def avatar_remote_url=(url_value)
+        if url_value.present?
+            self.avatar = URI.parse(url_value)
+            @avatar_remote_url = url_value
+        end
+    end
+    
 end
